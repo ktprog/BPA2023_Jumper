@@ -17,7 +17,7 @@ const follow = require('./Routes/follow.js');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("../website"));
 app.use(cookieParser());
-app.use(cors({origin: 'http://127.0.0.1:5500'}));
+//app.use(cors({origin: 'http://127.0.0.1:5500'}));
 app.use(fileUpload());
 
 //Connect database

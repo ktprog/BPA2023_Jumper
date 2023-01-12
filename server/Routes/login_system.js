@@ -2,6 +2,7 @@ const { IsResultEmpty } = require('../promise-query.js');
 
 module.exports = function(app, con, pQuery, pTokenGen)
 {
+    console.log("I got in here");
     const bcrypt = require('bcrypt');
     const emailValidator = require('deep-email-validator');
     var path = require("path");

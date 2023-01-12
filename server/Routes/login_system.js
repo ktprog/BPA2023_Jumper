@@ -6,6 +6,7 @@ module.exports = function(app, con, pQuery, pTokenGen)
     const emailValidator = require('deep-email-validator');
     var path = require("path");
     app.get('/home', (req, res) => {
+        console.log("ET phone home");
         try {
             const token = req.cookies['token'];
             if(token !== undefined)

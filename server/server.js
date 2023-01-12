@@ -28,7 +28,7 @@ var path = require('path');
 var fs = require('fs');
 //joining path of directory af
 var directoryPath = path.join(__dirname, 'Documents');
-directoryPath = "/website/";
+directoryPath = "/";
 //passsing directoryPath and callback function
 fs.readdir(directoryPath, function (err, files) {
     //handling error

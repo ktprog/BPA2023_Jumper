@@ -23,7 +23,7 @@ app.use(fileUpload());
 
 //Connect database
 pQuery.connect();
-
+/*
 var path = require('path');
 var fs = require('fs');
 //joining path of directory af
@@ -41,7 +41,7 @@ fs.readdir(directoryPath, function (err, files) {
         console.log(file); 
     });
 });
-
+*/
 
 
 // Listening + calling processes

@@ -75,18 +75,18 @@ module.exports = function(app, con, pQuery, pTokenGen)
                             // Did not find a user with the token despite having a token cookie
                             console.log("clear");
                             res.clearCookie("token");
-                            res.sendFile("login.html", { root: path.resolve("../website/") });
+                            res.sendFile("login.html", { root: path.resolve("/website/") });
                         }
                     });
                 }
                 else  
                 {
                     res.clearCookie("token");
-                    res.sendFile("login.html", { root: path.resolve("../website/") });
+                    res.sendFile("login.html", { root: path.resolve("/website/") });
                 }
             }
             else {
-                res.sendFile("login.html", { root: path.resolve("../website/") });
+                res.sendFile("login.html", { root: path.resolve("/website/") });
             }
         } catch (error) {
             console.log(error);
@@ -130,7 +130,7 @@ module.exports = function(app, con, pQuery, pTokenGen)
             }
             else 
             {
-                res.sendFile("register.html", { root: path.resolve("../../website/") });
+                res.sendFile("register.html", { root: path.resolve("/website/") });
             }
         } catch (error) {
             console.log(error);

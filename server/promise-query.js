@@ -11,15 +11,18 @@ const connect = () => {
         database: "BPA2023_Jumper"
     });
     con.connect(function(err) {
-        if (err) { console.log("THIS IS MY ERROR" + err); };
+        console.log("In Connect");
+        if (err) { throw err };
     });
 };
 const db = () => {
+    console.log("Returning con");
     return con;
 }
 const pQuery = (sql, vars) => {
     return new Promise((resolve, reject) => {
         con.query(sql, vars, (err, result) => {
+            console.log("In Query");
             if (err) {
                 reject(err);
             }

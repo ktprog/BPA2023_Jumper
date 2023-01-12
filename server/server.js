@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const pQuery = require("./promise-query.js");
 const app = express();
 const pTokenGen = require("./promise-tokengen.js");
+const PORT = process.env.PORT || 4000;
 
 // Website processses
 var login_system = require("./routes/login_system.js");
@@ -25,7 +26,7 @@ pQuery.connect();
 
 // Listening + calling processes
 d = new Date();
-app.listen(5000);
+app.listen(PORT);
 console.log("Server is online - " + d.toLocaleDateString());
 login_system(app, pQuery.db(), pQuery, pTokenGen);
 post_content(app, pQuery.db(), pQuery);

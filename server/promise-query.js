@@ -11,7 +11,7 @@ const connect = () => {
         database: "BPA2023_Jumper"
     });
     con.connect(function(err) {
-        console.log("In Connect");
+        console.log("In Connect " + Date.now());
         if (err) { throw err };
     });
 };

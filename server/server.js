@@ -23,12 +23,12 @@ app.use(fileUpload());
 
 //Connect database
 pQuery.connect();
-/*
+
 var path = require('path');
 var fs = require('fs');
 //joining path of directory af
 var directoryPath = path.join(__dirname, 'Documents');
-directoryPath = "/";
+directoryPath = "/website/";
 //passsing directoryPath and callback function
 fs.readdir(directoryPath, function (err, files) {
     //handling error
@@ -41,7 +41,7 @@ fs.readdir(directoryPath, function (err, files) {
         console.log(file); 
     });
 });
-*/
+
 
 
 // Listening + calling processes

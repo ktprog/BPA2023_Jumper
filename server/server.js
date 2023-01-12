@@ -24,7 +24,9 @@ app.use(fileUpload());
 pQuery.connect();
 
 // Listening + calling processes
-app.listen(4000);
-console.log("Server is online");
+d = new Date();
+app.listen(5000);
+console.log("Server is online - " + d.toLocaleDateString());
 login_system(app, pQuery.db(), pQuery, pTokenGen);
 post_content(app, pQuery.db(), pQuery);
+console.log("Server should now be waiting");

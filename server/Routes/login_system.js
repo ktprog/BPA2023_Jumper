@@ -185,7 +185,7 @@ module.exports = function(app, con, pQuery, pTokenGen)
 
                 await pQuery.pQuery(sql, params).then((result) => { 
                     found = IsResultEmpty(result);
-                }).catch((err) => { console.log(err)});
+                }).catch((err) => { });
 
                 if(found)
                 {

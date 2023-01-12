@@ -49,8 +49,9 @@ module.exports = function(app, con, pQuery, pTokenGen)
             }
 
             let user;
+            let user_id;
             let content = req.body.content.substring(0, 300);
-            let priv = req.body.privacy == "everyone";
+            let priv = +(req.body.privacy == "everyone");
             let date = new AdvancedDate();
             let postid = 0;
             
@@ -62,36 +63,27 @@ module.exports = function(app, con, pQuery, pTokenGen)
                 } 
                 else 
                 {
-                    user = result.username;
+                    user = result[0].username;
+                    user_id = result[0].id;
                 }
             });
 
-            let sql = "INSERT INTO posts (username, content, time_posted, likes, ribbits, file_name, extension, private) VALUES (?, ?, ?, 0, 0, ?, ?, ?) SELECT SCOPE_IDENTITY() AS id";
-            let params = [user, content, date.NowToDatetime(), random_name, extension, priv];
+            let sql = "INSERT INTO posts (username, user_id, content, time_posted, likes, file_name, extension, private) VALUES (?, ?, ?, ?, 0, ?, ?, ?)";
+            let params = [user, user_id, content, date.JavascriptToSQLDatetime(new Date()), random_name, extension, priv];
             
             pQuery.pQuery(sql, params).then((result) => { 
                 // Get the ID of the last row inserted, which is the insert above
-                postid = result.id;
+                postid = result.insertId;
             });
 
-            // Example: jumper.com/Antonio60/20
-            res.redirect(`/${user}/${postid}`)
+            res.redirect("/home");
         } 
         catch (error) 
         {
             console.log(error);
         }
     })
-    app.get('/:username/:postId', async (req,res) => {
-        try {
-            let username = req.params.username;
-            let id = req.params.postId;
-            
-            // Edit the html file being sent here and replace text and media and user with the above
-        } catch (error) {
-            console.log(error)
-        }
-    });
+
 
     const getSizeLimit = (ext) => {
         switch(ext)

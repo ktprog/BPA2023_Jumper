@@ -2,34 +2,26 @@ const mysql = require('mysql');
 
 // Database connection 
 var con;
-d = new Date();
 
 const connect = () => {
-    con = mysql.createConnection({
-        host: "166.62.75.128",
-        user: "ktprog2",
+    con = mysql.createPool({
+        connectionLimit: 20,
+        host: "localhost",
+        user: "root",
         password: "Keefe2012",
-        database: "BPA2023_Jumper"
-    });
-    con.connect(function(err) {
-        console.log("In Connect " + d.toLocaleTimeString());
-        if (err) { throw err };
+        database: "login_system"
     });
 };
 const db = () => {
-    console.log("Returning con");
     return con;
 }
 const pQuery = (sql, vars) => {
-
     return new Promise((resolve, reject) => {
         con.query(sql, vars, (err, result) => {
-            console.log("In Query");
             if (err) {
                 reject(err);
             }
             resolve(result);
-
         });
     });
 };

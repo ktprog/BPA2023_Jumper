@@ -9,9 +9,9 @@ const app = express();
 const pTokenGen = require("./promise-tokengen.js");
 
 // Website processses
-var login_system = require("./Routes/login_system.js");
-const post_content = require('./Routes/post_content.js');
-const follow = require('./Routes/follow.js');
+var login_system = require("./routes/login_system.js");
+const post_content = require('./routes/post_content.js');
+const follow = require('./routes/follow.js');
 
 // Setting up the server
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,9 +24,7 @@ app.use(fileUpload());
 pQuery.connect();
 
 // Listening + calling processes
-app.listen(5000);
-d = new Date();
-console.log("Server is online - " + d.toLocaleTimeString());
+app.listen(4000);
+console.log("Server is online");
 login_system(app, pQuery.db(), pQuery, pTokenGen);
 post_content(app, pQuery.db(), pQuery);
-console.log("I am after server is up, so login_system has run");

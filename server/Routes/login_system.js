@@ -24,7 +24,7 @@ module.exports = function(app, con, pQuery, pTokenGen)
                             // Found a user in the database with this token, redirect to index
                             // This is where you load the website with the user data
                             
-                            res.sendFile("index.html", { root: path.resolve("../website/") });
+                            res.sendFile("index.html", { root: path.resolve("/website/") });
                         }
                         else
                         {
@@ -130,7 +130,7 @@ module.exports = function(app, con, pQuery, pTokenGen)
             }
             else 
             {
-                res.sendFile("register.html", { root: path.resolve("../website/") });
+                res.sendFile("register.html", { root: path.resolve("../../website/") });
             }
         } catch (error) {
             console.log(error);

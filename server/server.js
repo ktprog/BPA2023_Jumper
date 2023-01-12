@@ -25,7 +25,8 @@ pQuery.connect();
 
 // Listening + calling processes
 app.listen(5000);
-console.log("Server is online - " + Date.getDate());
+d = new Date();
+console.log("Server is online - " + d.toLocaleTimeString());
 login_system(app, pQuery.db(), pQuery, pTokenGen);
 post_content(app, pQuery.db(), pQuery);
 console.log("I am after server is up, so login_system has run");

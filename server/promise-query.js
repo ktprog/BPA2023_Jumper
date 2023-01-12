@@ -11,7 +11,7 @@ const connect = () => {
         database: "BPA2023_Jumper"
     });
     con.connect(function(err) {
-        console.log("In Connect " + Date.now());
+        console.log("In Connect " + Date.getDate());
         if (err) { throw err };
     });
 };
@@ -20,6 +20,7 @@ const db = () => {
     return con;
 }
 const pQuery = (sql, vars) => {
+
     return new Promise((resolve, reject) => {
         con.query(sql, vars, (err, result) => {
             console.log("In Query");
@@ -27,6 +28,7 @@ const pQuery = (sql, vars) => {
                 reject(err);
             }
             resolve(result);
+
         });
     });
 };

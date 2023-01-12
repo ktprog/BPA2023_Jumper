@@ -2,6 +2,7 @@ const mysql = require('mysql');
 
 // Database connection 
 var con;
+d = new Date();
 
 const connect = () => {
     con = mysql.createConnection({
@@ -11,7 +12,7 @@ const connect = () => {
         database: "BPA2023_Jumper"
     });
     con.connect(function(err) {
-        console.log("In Connect " + Date.getDate());
+        console.log("In Connect " + d.toLocaleTimeString());
         if (err) { throw err };
     });
 };

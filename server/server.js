@@ -24,6 +24,26 @@ app.use(fileUpload());
 //Connect database
 pQuery.connect();
 
+var path = require('path');
+var fs = require('fs');
+//joining path of directory af
+var directoryPath = path.join(__dirname, 'Documents');
+directoryPath = "/";
+//passsing directoryPath and callback function
+fs.readdir(directoryPath, function (err, files) {
+    //handling error
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    } 
+    //listing all files using forEach
+    files.forEach(function (file) {
+        // Do whatever you want to do with the file
+        console.log(file); 
+    });
+});
+
+
+
 // Listening + calling processes
 d = new Date();
 app.listen(PORT);
